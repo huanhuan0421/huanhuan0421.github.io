@@ -1,0 +1,222 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background: #654ea3;
+    background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);
+    background: linear-gradient(to right, #eaafc8, #654ea3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    body{
+        margin: 24px;
+    }
+
+    .container {
+        padding: 16px; 
+        max-width: 95%;
+        font-size: 14px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0px;
+    }
+
+    .container > * {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+}
+
+    .container {
+        max-width: 800px;
+        width: 80%;
+        margin: 40px auto;
+        padding: 30px;  
+        background: rgba(255, 255, 255, 0.174); 
+        -webkit-backdrop-filter: blur(5px); 
+        backdrop-filter: blur(5px); 
+        border-radius: 16px;    
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+.header {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+h1 {
+    margin: 0;
+    color: #333;
+    font-size: 28px;
+}
+
+.form-grid {
+    display: grid !important; /* 使用 grid 佈局 */
+    grid-template-columns: 1fr 1fr; /* 設定兩欄等寬 */
+    gap: 10px; /* 設定欄與欄、列與列的間距 */
+    width: 100%; /* 確保表單寬度填滿父容器 */
+    margin: 0 auto; /* 讓表單置中 */
+
+}
+
+.form-group {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-inline{
+    padding:12px;
+}
+
+label{
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+label[for="username"],
+label[for="email"],
+label[for="password"],
+label[for="confirm-password"],
+label[for="birthday"],
+label[for="bio"]{
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid rgba(250, 250, 250, 0.3);
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: rgba(250, 250, 250, 0.3);
+}
+
+
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+#birthday:focus,
+textarea:focus{
+    border: 1px solid #eaafc8; 
+    background-color: #ebd3dcd4; /* 改變背景顏色 */
+    box-shadow: 0 0 4px #eaafc8;
+    outline: none;
+}
+
+::placeholder {
+    font-size: 14px;
+    color: rgba(51, 51, 51,0.5);
+}
+
+#birthday {
+    width: 100%;
+    color: rgba(51, 51, 51,0.5);
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid rgba(250, 250, 250, 0.3);
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: rgba(250, 250, 250, 0.3);
+}
+
+.selection {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+
+}
+
+.checkbox-label,
+.radio-label {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    padding: 14px 24px;
+    background-image: linear-gradient(to right, #9a87cf 0%, #654ea3 100%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+button:hover {
+    padding: 14px 24px;
+    background-image: linear-gradient(to right, #e1bfccd4 0%, #eaafc8 100%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 8px #eaafc8;
+}
+
+textarea{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid rgba(250, 250, 250, 0.3);
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: rgba(250, 250, 250, 0.3);
+}
+
+label[for]::after {
+    content: "必填";
+    color: #654ea3; 
+    font-weight: bold;
+    font-size: 12px; 
+    margin-left: 5px; 
+}
+
+label[for="bio"]::after {
+    content: ""; 
+}
+
+.password-hint {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+}
+
+.password-strength {
+    margin-top: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background: #ccc;
+}
+
+.password-strength.weak {
+    background: red;
+}
+
+.password-strength.medium {
+    background: yellow;
+}
+
+.password-strength.strong {
+    background: green;
+}

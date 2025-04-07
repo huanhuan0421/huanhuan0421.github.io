@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>註冊您的帳號</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Pink Purple.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>註冊一個新的帳號</h1>
+        </div>
+        <form>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="username">使用者名稱</label>
+                    <input type="text" id="username" name="username" placeholder="請輸入使用者名稱" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">電子信箱</label>
+                    <input type="email" id="email" name="email" placeholder="your@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">密碼</label>
+                    <input type="password" id="password" name="password" placeholder="請輸入密碼" required>
+                    <small class="password-hint">包含大小寫英文字母或符號，至少6個字</small>
+                    <div class="password-strength" id="password-strength"></div>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">確認密碼</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="請再次輸入密碼" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="birthday">生日</label>
+                <input type="date" id="birthday">   
+            </div>
+            <div class="form-group inline">
+                <label>性別：</label>
+                <div class="selection">
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="male"> 男
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="female"> 女
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="None"> 不願透露
+                </div>
+            </div>
+            <div class="form-group inline">
+                <label>興趣：</label>
+                <div class="selection">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="interest" value="Graphic"> 平面設計
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="interest" value="Product"> 產品設計
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="interest" value="Web"> 網頁設計
+                    </label>   
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="interest" value="Interior"> 室內設計
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="interest" value="Arch"> 建築設計 
+                    </label>                 
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="interest" value="Other"> 其他類型
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="bio">自我介紹</label>
+                <textarea id="bio" placeholder="請簡單介紹自己..."></textarea>   
+            </div>
+            <div class="form-group">
+                <button type="submit">建立一個新帳號</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const passwordInput = document.getElementById('password');
+        const passwordStrength = document.getElementById('password-strength');
+
+        passwordInput.addEventListener('input', () => {
+            const value = passwordInput.value;
+            let strength = 'weak';
+
+            if (value.length > 6 && /[A-Z]/.test(value) && /[a-z]/.test(value) && /[\W_]/.test(value)) {
+                strength = 'strong';
+            } else if (value.length > 6 && (/[A-Z]/.test(value) || /[\W_]/.test(value))) {
+                strength = 'medium';
+            }
+
+            passwordStrength.className = `password-strength ${strength}`;
+        });
+    </script>
+</body>
+</html>
